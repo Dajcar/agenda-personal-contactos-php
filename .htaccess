@@ -1,0 +1,11 @@
+Options -Indexes
+RewriteEngine On
+# Nunca exponer archivos o carpetas con código, documentación o credenciales.
+RewriteRule ^(config|src|templates|database|tests|docs)(/|$) - [F,NC]
+RewriteRule (^|/)(\.git|\.env|README|CHANGELOG|LICENSE)(/|\.|$) - [F,NC]
+RewriteRule \.(sql|md|log|bak|ini|dist|zip)$ - [F,NC]
+# El código PHP público se mantiene dentro de public/.
+RewriteRule ^$ public/index.php [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/$1 [L]

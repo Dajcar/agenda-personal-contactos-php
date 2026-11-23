@@ -1,0 +1,14 @@
+# Credenciales de cada instalación
+/config/config.php
+.env
+.env.*
+!.env.example
+# Archivos temporales o locales
+.DS_Store
+Thumbs.db
+*.log
+/.idea/
+/.vscode/
+/vendor/
+/node_modules/
+/coverage/
